@@ -1,0 +1,148 @@
+/* Глобальные стили */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  overflow: hidden;
+  background-color: #141414;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/* Переменные */
+:root {
+
+  /* Цвета */
+  --clr: #ff006a;
+  --clr1: #9d00ff;
+
+
+}
+
+
+
+/* Контейнер */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 600px;
+}
+
+
+
+/* Текст загрузки ----------------------------------------------------------------------------------------------------- */
+.text {
+  position: relative;
+  display: flex;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--clr);
+  text-shadow: 0 0 20 var(--clr);
+}
+
+/* Тень текста */
+.text::after {
+  position: absolute;
+  top: 100%;
+  content: "";
+  width: 100%;
+  height: 50px;
+  background-color: var(--clr);
+  transform: perspective(1em) rotateX(40deg) scale(1.0, 0.5);
+  filter: blur(1em);
+}
+
+
+
+/* Поле анимации ----------------------------------------------------------------------------------------------------- */
+.loading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  animation: scale 5s linear infinite;
+}
+
+/* Полосы по сторонам поля */
+.loading span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-left: 3px solid var(--clr1);
+  border-right: 3px solid var(--clr);
+  border-radius: 37% 61% 63% 35%/42% 34% 64% 56%;
+  animation: rotate 5s linear infinite;
+}
+
+.loading span:nth-child(1) {
+  animation: rotate 6s linear infinite reverse;
+}
+
+.loading span:nth-child(2) {
+  animation: rotate 9s linear infinite;
+}
+
+.loading span:nth-child(3) {
+  animation: rotate 12s linear infinite reverse;
+}
+
+
+
+/* Кадры для поворотов */
+@keyframes rotate {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+
+/* Кадры для размера */
+@keyframes scale {
+
+  0% {
+    width: 400px;
+    height: 400px;
+  }
+
+  50% {
+    width: 600px;
+    height: 600px;
+  }
+
+  100% {
+    width: 400px;
+    height: 400px;
+  }
+}
