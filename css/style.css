@@ -83,8 +83,10 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   height: 400px;
+  will-change: max-width;
   animation: scale 5s linear infinite;
 }
 
@@ -96,6 +98,7 @@ svg {
   border-left: 3px solid var(--clr1);
   border-right: 3px solid var(--clr);
   border-radius: 37% 61% 63% 35%/42% 34% 64% 56%;
+  will-change: transform;
   animation: rotate 5s linear infinite;
 }
 
@@ -132,17 +135,110 @@ svg {
 @keyframes scale {
 
   0% {
-    width: 400px;
+    max-width: 400px;
     height: 400px;
   }
 
   50% {
-    width: 600px;
+    max-width: 600px;
     height: 600px;
   }
 
   100% {
-    width: 400px;
+    max-width: 400px;
     height: 400px;
   }
+}
+
+
+
+/* Брэкпоинт на 992px */
+@media (max-width: 992px) {
+
+  .loading {
+    max-width: 300px;
+    height: 300px;
+  }
+
+  /* Кадры для размера */
+  @keyframes scale {
+
+    0% {
+      max-width: 300px;
+      height: 300px;
+    }
+
+    50% {
+      max-width: 400px;
+      height: 400px;
+    }
+
+    100% {
+      max-width: 300px;
+      height: 300px;
+    }
+  }
+
+}
+
+
+
+/* Брэкпоинт на 576px */
+@media (max-width: 576px) {
+
+  .loading {
+    max-width: 150px;
+    height: 150px;
+  }
+
+  /* Кадры для размера */
+  @keyframes scale {
+
+    0% {
+      max-width: 150px;
+      height: 150px;
+    }
+
+    50% {
+      max-width: 250px;
+      height: 250px;
+    }
+
+    100% {
+      max-width: 150px;
+      height: 150px;
+    }
+  }
+
+}
+
+
+
+/* Брэкпоинт на 390px */
+@media (max-width: 390px) {
+
+  .loading {
+    max-width: 125px;
+    height: 150px;
+  }
+
+  /* Кадры для размера */
+  @keyframes scale {
+
+    0% {
+      max-width: 125px;
+      height: 125px;
+    }
+
+    50% {
+      max-width: 200px;
+      height: 200px;
+    }
+
+    100% {
+      max-width: 125px;
+      height: 125px;
+    }
+  }
+
 }
